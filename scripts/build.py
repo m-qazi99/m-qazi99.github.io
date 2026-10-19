@@ -1,5 +1,5 @@
 """Generate crawlable static pages from content/profile.json. Python 3; no npm dependencies."""
-import json, html, shutil, sys, zipfile
+import json, html, shutil, sys, zipfile, hashlib
 from pathlib import Path
 from xml.sax.saxutils import escape as xml
 ROOT=Path(__file__).resolve().parents[1]
@@ -9,6 +9,8 @@ if '--public' in sys.argv: P['publicIndexing']=True
 if '--site-url' in sys.argv: P['siteUrl']=sys.argv[sys.argv.index('--site-url')+1].rstrip('/')
 H=html.escape
 URL=P['siteUrl']
+CSS_VERSION=hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
+JS_VERSION=hashlib.sha256((ROOT/'assets/app.js').read_bytes()).hexdigest()[:12]
 shutil.copytree(ROOT/'assets',D/'assets',dirs_exist_ok=True,ignore=shutil.ignore_patterns('.*'))
 shutil.copyfile(ROOT/'assets/Muzammil_Qazi_Resume.pdf',D/'Muzammil_Qazi_Resume.pdf')
 def tags(items): return '<div class="tags">'+''.join('<span class="tag">'+H(i)+'</span>' for i in items)+'</div>'
@@ -39,7 +41,7 @@ def page(title,description,body,path='/',home=False):
     canonical=URL+path
     schema={'@context':'https://schema.org','@type':'ProfilePage' if home else 'WebPage','name':title,'url':canonical,'description':description,'mainEntity':{'@type':'Person','name':P['name'],'jobTitle':'Azure Data Engineer','url':URL+'/','sameAs':[P['linkedin'],P['github']],'homeLocation':{'@type':'Place','name':P['location']}}}
     indexing='index,follow' if P['publicIndexing'] else 'noindex,nofollow'
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H(title)}</title><meta name="description" content="{H(description)}"><meta name="robots" content="{indexing}"><meta name="theme-color" content="#090e1b"><link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><meta property="og:type" content="website"><meta property="og:title" content="{H(title)}"><meta property="og:description" content="{H(description)}"><meta property="og:url" content="{canonical}"><meta property="og:site_name" content="Muzammil Qazi"><meta property="og:image" content="{URL}/assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Muzammil Qazi — Azure Data Engineering and AI Workflow Automation"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/style.css"><link rel="preload" href="/assets/body.woff" as="font" type="font/woff" crossorigin><script type="application/ld+json">{json.dumps(schema)}</script><script defer src="/assets/app.js"></script></head><body>{header(home)}{body}{footer()}</body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H(title)}</title><meta name="description" content="{H(description)}"><meta name="robots" content="{indexing}"><meta name="theme-color" content="#090e1b"><link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><meta property="og:type" content="website"><meta property="og:title" content="{H(title)}"><meta property="og:description" content="{H(description)}"><meta property="og:url" content="{canonical}"><meta property="og:site_name" content="Muzammil Qazi"><meta property="og:image" content="{URL}/assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Muzammil Qazi — Azure Data Engineering and AI Workflow Automation"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/style.css?v={CSS_VERSION}"><link rel="preload" href="/assets/body.woff" as="font" type="font/woff" crossorigin><script type="application/ld+json">{json.dumps(schema)}</script><script defer src="/assets/app.js?v={JS_VERSION}"></script></head><body>{header(home)}{body}{footer()}</body></html>'''
 from studio import hero_art, enhance, contact_form
 cards=''
 for p in P['projects']:
