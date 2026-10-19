@@ -50,7 +50,7 @@ DejaVu fonts are bundled under `assets/FONT-LICENSE.txt`. All website source and
 
 ## Interactive Data Workbench upgrade
 
-The site uses a midnight glass visual identity and an original orbital monogram. New visitor features:
+The site uses a light glass visual identity and an original orbital monogram. Visitors can choose Champagne (default), Pearl, Aurora, or Rose. The selection persists locally across visits. New visitor features:
 
 - Searchable atlas of 43 technologies and practices across six disciplines.
 - Project category filters and three selectable synthetic pipeline scenarios.
@@ -73,3 +73,7 @@ The route checker validates all seven pages, local links, metadata, structured d
 ### Research and scope
 
 See [the review of all 19 supplied references](research/profile-inspiration.md). The GitHub profile's matching banners and expandable technology atlas live in [m-qazi99/m-qazi99](https://github.com/m-qazi99/m-qazi99). Project summaries retain their original evidence boundaries; the pipeline explorer uses synthetic data and makes no live AI calls.
+
+### Light glass themes
+
+The shared CSS uses semantic palette variables. `assets/theme.js` applies a saved palette before first paint; the header selector saves changes locally. All four palettes remain light. Glass uses readable surface tints, modest blur on key panels, and a no-blur fallback. The existing skill search, project filters, pipeline scenarios, and contact builder are retained.

@@ -13,3 +13,6 @@ document.querySelectorAll('[data-scenario]').forEach(button=>button.addEventList
 const briefType=document.querySelector('#brief-type'),briefContext=document.querySelector('#brief-context'),briefEmail=document.querySelector('#brief-email');
 function updateBrief(){if(!briefEmail)return;const subject=briefType.value;const body=`Hi Muzammil,\n\nI'd like to discuss ${subject.toLowerCase()}.\n\n${briefContext.value.trim()}\n\nBest regards,`;briefEmail.href=`mailto:kazimuzammil99@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;}
 briefType?.addEventListener('change',updateBrief);briefContext?.addEventListener('input',updateBrief);document.querySelector('#contact-brief')?.addEventListener('submit',e=>e.preventDefault());updateBrief();
+
+const themeSelect=document.getElementById('theme-select');
+if(themeSelect){themeSelect.value=document.documentElement.dataset.theme||'champagne';themeSelect.addEventListener('change',()=>{const theme=themeSelect.value;if(!['champagne','pearl','aurora','rose'].includes(theme))return;document.documentElement.dataset.theme=theme;try{localStorage.setItem('mq-color-theme',theme);}catch{}const colors={champagne:'#faf7ef',pearl:'#f6f9fc',aurora:'#f5faf7',rose:'#fff7f5'};document.querySelector('meta[name="theme-color"]')?.setAttribute('content',colors[theme]);});}
