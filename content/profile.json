@@ -1,0 +1,179 @@
+{
+  "name": "Muzammil Qazi",
+  "email": "kazimuzammil99@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/muzammil-1209-qazi/",
+  "location": "Pune, India",
+  "headline": "Azure Data Engineer · AI Workflow Automation",
+  "siteUrl": "https://m-qazi99.github.io",
+  "publicIndexing": true,
+  "introduction": "I work with Azure data pipelines, data quality, and AI-assisted workflows to make everyday engineering and operations easier to understand and maintain.",
+  "about": [
+    "I'm Muzammil, an Azure data engineer based in Pune. My experience at Cognizant connects enterprise operations with data engineering: understanding what a workflow needs to do, investigating where it breaks, and making the next handoff clearer.",
+    "My work spans ingestion with Azure Data Factory, transformations with Databricks and PySpark, and SQL-based validation and reconciliation. I'm especially interested in the practical layer around a pipeline: useful telemetry, understandable errors, and documentation people can actually use.",
+    "I'm applying AI to that same set of problems through diagnostic assistants, metadata-driven SQL generation, and retrieval over operational documents. My direction is simple: reliable data foundations, with automation that helps people make better decisions."
+  ],
+  "capabilities": [
+    {
+      "title": "Move & transform data",
+      "description": "Connect enterprise sources to Azure data platforms with reusable ingestion and transformation workflows.",
+      "tools": [
+        "Azure Data Factory",
+        "ADLS Gen2",
+        "Databricks",
+        "PySpark",
+        "ETL / ELT"
+      ]
+    },
+    {
+      "title": "Validate & troubleshoot",
+      "description": "Check source-to-target consistency, investigate failures, and make pipeline behavior easier to follow.",
+      "tools": [
+        "SQL / T-SQL",
+        "Python",
+        "Reconciliation",
+        "Telemetry",
+        "Runbooks"
+      ]
+    },
+    {
+      "title": "Assist & automate",
+      "description": "Turn logs, metadata, and process documents into useful diagnostic and documentation workflows.",
+      "tools": [
+        "LLM APIs",
+        "Prompt design",
+        "Streamlit",
+        "SQL generation",
+        "Git / Azure DevOps"
+      ]
+    }
+  ],
+  "learning": [
+    "RAG / LlamaIndex",
+    "Microsoft Fabric / OneLake",
+    "Lakehouse / Delta Lake concepts",
+    "Copilot Studio / Power Automate depth"
+  ],
+  "experience": [
+    {
+      "role": "Associate",
+      "focus": "Azure data engineering & automated operations",
+      "dates": "Nov 2024 — Present",
+      "points": [
+        "Build and maintain ADF ingestion workflows with reusable parameters, dependencies, and triggers.",
+        "Investigate pipeline failures, validate data, and document operational procedures.",
+        "Apply AI-assisted diagnostics and metadata-driven validation to recurring engineering tasks."
+      ]
+    },
+    {
+      "role": "Programmer Analyst",
+      "focus": "Data integration, transformations & quality",
+      "dates": "Jun 2023 — Nov 2024",
+      "points": [
+        "Developed and supported ETL/ELT workflows across SQL and Azure data environments.",
+        "Worked with Databricks, PySpark, SQL, and ADLS Gen2 on transformation and verification.",
+        "Collaborated on technical mappings, error handling, logging, and pipeline troubleshooting."
+      ]
+    },
+    {
+      "role": "Programmer Analyst Trainee",
+      "focus": "Enterprise operations analytics",
+      "dates": "Mar 2022 — Jun 2023",
+      "points": [
+        "Monitored operational workflows and recurring processing issues.",
+        "Created spreadsheet and reporting automation for operational visibility.",
+        "Maintained runbooks, configuration checklists, and handoff documentation."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.E. · Mechanical Engineering",
+      "school": "Swami Ramanand Teerth Marathwada University",
+      "dates": "2017 — 2020"
+    },
+    {
+      "degree": "Diploma · Mechanical Engineering",
+      "school": "VDF School of Polytechnic",
+      "dates": "2013 — 2016"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "pipeline-support",
+      "number": "01",
+      "category": "AI-assisted diagnostics",
+      "title": "From pipeline errors to a clearer next step.",
+      "name": "AI Data Pipeline Support Assistant",
+      "summary": "An assistant that interprets ADF execution traces and turns technical errors into diagnostic guidance and incident communication.",
+      "tools": [
+        "Python",
+        "Streamlit",
+        "ADF",
+        "SQL",
+        "LLM API"
+      ],
+      "flow": [
+        "Execution trace",
+        "Diagnostic context",
+        "Suggested checks"
+      ],
+      "problem": "Pipeline failures leave engineers with execution traces, exceptions, and a time-sensitive investigation. Turning that information into a useful next step and a clear stakeholder update can involve repetitive work.",
+      "contribution": "Developed a troubleshooting utility to interpret Azure Data Factory execution traces and pipeline exceptions, produce diagnostic guidance, and draft validation SQL and incident communication.",
+      "implementation": "The résumé describes a Python and Streamlit utility using an LLM workflow with ADF error information and SQL validation context. Its outputs include likely failure context, troubleshooting steps, and structured communication.",
+      "outcome": "The documented result is a reusable diagnostic workflow that brings investigation and communication into one utility. No independently verified time savings or production deployment evidence is available, so no numerical performance claim is made here.",
+      "boundary": "Diagnostic guidance and generated SQL require engineering review. The available project description does not document the model provider, hosting environment, evaluation dataset, or measured accuracy.",
+      "discussion": "A useful next evidence step is a sanitized failure example, the assistant's response, and a record of which suggested checks were correct."
+    },
+    {
+      "slug": "data-quality",
+      "number": "02",
+      "category": "Metadata-driven validation",
+      "title": "Make the gaps in your data visible.",
+      "name": "Intelligent Data Quality & Reconciliation Framework",
+      "summary": "Reusable source-to-target checks that translate metadata into SQL validation, schema comparisons, and quality summaries.",
+      "tools": [
+        "Python",
+        "SQL",
+        "Metadata automation",
+        "Schema validation"
+      ],
+      "flow": [
+        "Source + target",
+        "Validation rules",
+        "Quality summary"
+      ],
+      "problem": "Source and target datasets can disagree in schema, record counts, or expected values. Rewriting similar verification queries for each dataset makes quality reviews repetitive and harder to standardize.",
+      "contribution": "Designed a metadata-driven validation framework that generates source-to-target verification queries, compares schemas, runs reconciliation checks, and summarizes detected exceptions.",
+      "implementation": "Python and SQL support reusable checks driven by source and target metadata. The documented outputs include validation status, schema inconsistencies, reconciliation results, and unexpected record gaps.",
+      "outcome": "The project description supports a repeatable approach to validation and structured quality reporting. No public benchmark, coverage measurement, or verified reduction in review effort is available.",
+      "boundary": "Metadata quality and the chosen rules determine what a check can detect. The available material does not specify database permissions, deployment architecture, automated test coverage, or a production release.",
+      "discussion": "The most useful evidence would be a synthetic source/target pair, generated checks, expected discrepancies, and reproducible results."
+    },
+    {
+      "slug": "knowledge-assistant",
+      "number": "03",
+      "category": "Knowledge retrieval · proof of concept",
+      "title": "Put operational knowledge within reach.",
+      "name": "Enterprise Operations Knowledge Assistant",
+      "summary": "A RAG proof of concept for finding workflow instructions and troubleshooting guidance inside SOPs and runbooks.",
+      "tools": [
+        "RAG",
+        "LlamaIndex",
+        "LLM",
+        "Operational documents"
+      ],
+      "flow": [
+        "SOPs + runbooks",
+        "Context retrieval",
+        "Workflow guidance"
+      ],
+      "problem": "Operational guidance often sits across process documents and runbooks. Finding the relevant instruction during an investigation can mean manually searching several sources.",
+      "contribution": "Built a proof-of-concept assistant using retrieval-augmented generation to retrieve contextual guidance from SOPs, runbooks, and internal-style operational documentation.",
+      "implementation": "The documented approach uses RAG and LlamaIndex to connect natural-language questions with relevant operational content. The use cases include workflow instructions, troubleshooting procedures, and escalation guidance.",
+      "outcome": "This is documented as an exploration of knowledge retrieval, prompt optimization, and contextual responses. It is not presented as a deployed enterprise assistant or as evidence of measured answer accuracy.",
+      "boundary": "The source material does not identify an embedding model, vector store, chunking configuration, evaluation results, or access-control implementation. No private operational documents are exposed on this website.",
+      "discussion": "A future public demonstration should use synthetic documents and measure grounded answers, retrieval relevance, and appropriate abstention."
+    }
+  ],
+  "github": "https://github.com/m-qazi99"
+}

@@ -1,0 +1,1 @@
+{"name":"muzammil-qazi-portfolio","version":"1.0.0","private":true,"scripts":{"build":"python3 scripts/build.py","check":"python3 scripts/check.py"}}
