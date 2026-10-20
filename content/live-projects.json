@@ -1,72 +1,72 @@
 [
   {
-    "slug": "datalens",
-    "name": "DataLens",
-    "summary": "Profile a CSV, uncover missing values, and apply explicit quality rules. Turn a first look into a reproducible data-quality report.",
-    "features": [
-      "Column type inference",
-      "Missing-value analysis",
-      "Uniqueness rules",
-      "IQR outlier review"
-    ],
-    "symbol": "\u25c8",
-    "accent": "#7d5727",
-    "wash": "#f1dfb7"
-  },
-  {
     "slug": "pipeline-pulse",
     "name": "Pipeline Pulse",
-    "summary": "Inspect structured activity logs, group failure signals, and prepare an incident handoff with rule-based diagnostic suggestions.",
+    "summary": "An interactive failure laboratory for data pipelines. Shape a DAG, inject a fault, and watch the consequences propagate.",
     "features": [
-      "Failure classification",
-      "Activity duration review",
-      "Incident handoff export",
-      "Transparent diagnostic rules"
+      "Discrete-event DAG scheduling",
+      "Failure blast radius",
+      "Interactive execution replay",
+      "Critical path and recovery comparisons"
     ],
     "symbol": "\u2301",
-    "accent": "#286a66",
-    "wash": "#cde9de"
+    "accent": "#246b60",
+    "wash": "#d7eee4"
+  },
+  {
+    "slug": "datalens",
+    "name": "DataLens",
+    "summary": "Turn a dataset into a living quality map. Write contracts, find the exact failures, and compare distribution shifts against a baseline.",
+    "features": [
+      "Row-level quality heatmap",
+      "Executable JSON contracts",
+      "Baseline PSI drift comparison",
+      "Distribution and schema inspection"
+    ],
+    "symbol": "\u25c8",
+    "accent": "#936622",
+    "wash": "#f3e4c5"
   },
   {
     "slug": "recon-lab",
     "name": "Recon Lab",
-    "summary": "Match records by unique keys, inspect missing rows, and compare values with a configurable numeric tolerance.",
+    "summary": "Move beyond row counts. Investigate field-level differences, model tolerance policies, and trace every exception to its source.",
     "features": [
-      "Composite key matching",
-      "Missing-record detection",
-      "Decimal-safe tolerance",
-      "Exception CSV export"
+      "Selectable record diff inspector",
+      "Absolute and relative Decimal policies",
+      "Tolerance sensitivity frontier",
+      "Control totals and exception ledger"
     ],
     "symbol": "\u21c4",
-    "accent": "#5c4f99",
-    "wash": "#e2d9f4"
+    "accent": "#6953a2",
+    "wash": "#e9e0f8"
   },
   {
     "slug": "runbook-radar",
     "name": "Runbook Radar",
-    "summary": "Search Markdown runbooks using a real Python TF-IDF retrieval engine. Read ranked source passages with traceable citations.",
+    "summary": "Explore how search actually works. Compare BM25 and TF-IDF, inspect term contributions, and evaluate retrieval against labeled questions.",
     "features": [
-      "TF-IDF cosine ranking",
-      "Traceable source citations",
-      "Local document search",
-      "Evidence export"
+      "BM25 versus TF-IDF ranking",
+      "Per-term score explanation",
+      "Controllable chunk atlas",
+      "Labeled MRR and hit-rate evaluation"
     ],
     "symbol": "\u25ce",
-    "accent": "#3f6891",
-    "wash": "#d2e5f4"
+    "accent": "#386a9e",
+    "wash": "#dcebf7"
   },
   {
     "slug": "privacy-forge",
     "name": "Privacy Forge",
-    "summary": "Review sensitive-field signals, mask whole cells, and export a sanitized copy. Inspect every flagged field before sharing data.",
+    "summary": "Design a column-by-column transformation policy. Explore what stays useful, what remains exposed, and how small groups can reveal more than expected.",
     "features": [
-      "Header-aware detection",
-      "Pattern-based discovery",
-      "Run-scoped tokenization",
-      "Masked CSV export"
+      "Visual column policy builder",
+      "Six transformation actions",
+      "Quasi-identifier group exposure",
+      "Hashed input/output audit receipts"
     ],
     "symbol": "\u25c7",
-    "accent": "#9a5261",
-    "wash": "#f2d7dd"
+    "accent": "#a25268",
+    "wash": "#f5dfe6"
   }
 ]
