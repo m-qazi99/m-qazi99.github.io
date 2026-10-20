@@ -2,12 +2,12 @@
   {
     "slug": "pipeline-pulse",
     "name": "Pipeline Pulse",
-    "summary": "An interactive failure laboratory for data pipelines. Shape a DAG, inject a fault, and watch the consequences propagate.",
+    "summary": "Build your own pipeline, solve graded incident challenges, and compare worker capacity against a completion target. Save named experiments and return to your investigations.",
     "features": [
-      "Discrete-event DAG scheduling",
-      "Failure blast radius",
-      "Interactive execution replay",
-      "Critical path and recovery comparisons"
+      "Visual DAG builder",
+      "Python-graded incident challenges",
+      "Capacity planning frontier",
+      "Local experiment vault"
     ],
     "symbol": "\u2301",
     "accent": "#246b60",
