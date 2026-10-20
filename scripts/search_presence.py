@@ -1,5 +1,6 @@
 """Build human-readable, source-attributed search surfaces from first-party project facts."""
 import html,json
+from discovery_content import answers, guide, retrieval_note
 from pathlib import Path
 from xml.sax.saxutils import escape as xml
 H=html.escape
@@ -34,7 +35,7 @@ def software(profile,p):
 
 def schema(profile,title,description,path,home=False):
     url=profile['siteUrl'].rstrip('/');canonical=url+path
-    page={'@type':'ProfilePage' if home or path in {'/about/','/profile/'} else 'CollectionPage' if path in {'/projects/','/notes/'} else 'WebPage',
+    page={'@type':'ProfilePage' if home or path in {'/about/','/profile/'} else 'CollectionPage' if path in {'/projects/','/notes/','/project-guide/'} else 'WebPage',
       '@id':canonical+'#webpage','url':canonical,'name':title,'description':description,
       'isPartOf':{'@id':url+'/#website'},'about':{'@id':url+'/#person'},'inLanguage':'en-IN'}
     if home or path in {'/about/','/profile/'}:page['mainEntity']={'@id':url+'/#person'}
@@ -77,9 +78,11 @@ def build(profile,dest,page):
       path=dest/route.strip('/');path.mkdir(parents=True,exist_ok=True)
       (path/'index.html').write_text(page(title,description,body,path=route));routes.append(route)
     facts='<div class="fact-grid"><section class="glass"><h2>Who is Muzammil Qazi?</h2><p>'+H(SEARCH['summary'])+'</p><p>Public handle: <strong>m-qazi99</strong>. Based in <strong>Pune, Maharashtra, India</strong>.</p></section><section class="glass"><h2>What can you inspect?</h2><p>Five running Python applications, public source repositories, tests, architecture notes, and synthetic demonstrations.</p><p>'+H(SEARCH['scope'])+'</p></section></div>'
+    facts+=answers()
     facts+='<h2>Canonical profiles and contact</h2><ul><li><a href="'+url+'/">Muzammil Qazi portfolio</a></li><li><a href="'+H(profile['github'])+'">GitHub: m-qazi99</a></li><li><a href="'+H(profile['linkedin'])+'">LinkedIn: Muzammil Qazi</a></li><li><a href="/contact/">Contact and project enquiries</a></li></ul><h2>Public project evidence</h2>'+project_list()+'<p class="note">Profile reviewed '+SEARCH['reviewed']+'. This page provides first-party identity and project information. It is not an independent endorsement, review, certification, or ranking.</p>'
     write('/profile/','Muzammil Qazi — Profile, Projects & Official Links',SEARCH['summary'],article_shell('Muzammil Qazi','PROFILE / FIRST-PARTY SOURCES',SEARCH['focus'],facts))
-    write('/projects/','Python Projects by Muzammil Qazi | Data Engineering Portfolio','Five independent Python applications by Muzammil Qazi: pipeline simulation, data quality, CSV reconciliation, runbook retrieval, and privacy policy experiments.',article_shell('Python projects by Muzammil Qazi','PROJECTS / LIVE APPS + SOURCE','Inspect the working applications, the algorithms behind them, and their practical limits.',project_list()))
+    write('/projects/','Python Projects by Muzammil Qazi | Data Engineering Portfolio','Five independent Python applications by Muzammil Qazi: pipeline simulation, data quality, CSV reconciliation, runbook retrieval, and privacy policy experiments.',article_shell('Python projects by Muzammil Qazi','PROJECTS / LIVE APPS + SOURCE','Inspect the working applications, the algorithms behind them, and their practical limits.','<p><a href="/project-guide/">Compare the five projects by question, inputs and evidence →</a></p>'+project_list()))
+    write('/project-guide/','Compare Python Data Tools | Muzammil Qazi','Choose between Pipeline Pulse, DataLens, Recon Lab, Runbook Radar and Privacy Forge by the question, inputs, evidence and limitations.',article_shell('Which Python project fits your question?','A GUIDE TO THE FIVE PROJECTS','Compare data quality, reconciliation, pipeline investigation, retrieval and privacy experiments.',guide()))
     for p in PROJECTS:
       detail=SEARCH['projects'][p['slug']];app=url+'/'+p['slug']+'/';repo='https://github.com/m-qazi99/'+p['slug']
       body='<p><strong>'+H(p['name'])+'</strong> is an independent Python project by <a href="/profile/">Muzammil Qazi</a> in the area of '+H(detail['category'].lower())+'.</p>'
@@ -87,18 +90,23 @@ def build(profile,dest,page):
       body+='<figure><img class="project-evidence-image" src="'+app+'studio-preview.jpg" alt="'+H(p['name'])+' interactive Python workspace" width="1204" height="709" loading="lazy"><figcaption>Screenshot of the independent portfolio application using synthetic inputs.</figcaption></figure>'
       body+='<h2>What does '+H(p['name'])+' do?</h2><p>'+H(p['summary'])+'</p><ul>'+''.join('<li>'+H(f)+'</li>' for f in p['features'])+'</ul><h2>How does the Python implementation work?</h2><p>'+H(detail['technical'])+'</p><p>The live browser application runs Python through Pyodide in a background worker. The repository includes a native Python CLI and a local HTTP API using the same engine.</p>'
       body+='<h2>Evidence and reproducibility</h2><ul>'+''.join('<li><a href="'+repo+'/'+target+'">'+label+'</a></li>' for target,label in [('tree/main/src','Python engine source'),('tree/main/tests','Automated tests'),('tree/main/examples','Synthetic example inputs'),('blob/main/docs/ARCHITECTURE.md','Architecture and tradeoffs')])+'</ul>'
+      related={'pipeline-pulse':('pipeline-failure-recovery','Pipeline failure recovery'),'recon-lab':('csv-reconciliation','CSV reconciliation'),'runbook-radar':('evaluating-runbook-retrieval','Evaluating runbook retrieval')}
+      if p['slug'] in related:
+        slug,label=related[p['slug']];body+='<h2>Engineering walkthrough</h2><p><a href="/notes/'+slug+'/">'+label+'</a>: inspect the reasoning and reproduce the example.</p>'
+      body+='<p><a href="/project-guide/">Compare this project with the other four tools</a></p>'
       body+='<h2>Scope and limitations</h2><p>'+H(detail['limitation'])+'</p><p>'+H(SEARCH['scope'])+'</p><p class="note">Project description reviewed '+SEARCH['reviewed']+'. <a href="/projects/">Compare the five projects</a> · <a href="/contact/">Contact Muzammil Qazi</a></p>'
       write('/projects/'+p['slug']+'/',p['name']+' by Muzammil Qazi | '+detail['category'],p['name']+' by Muzammil Qazi: '+detail['category'].lower()+'. Explore the Python implementation, live demo, source code, tests, and limitations.',article_shell(p['name']+' — '+detail['category'], 'INDEPENDENT PYTHON PROJECT / MUZAMMIL QAZI',p['summary'],body))
     notes=[
       ('pipeline-failure-recovery','Investigating pipeline failures with dependency graphs','A reproducible walkthrough of failure propagation, retries, recovery coverage, and completion targets in Pipeline Pulse.',pipeline_note()),
-      ('csv-reconciliation','Why row counts are not enough for CSV reconciliation','A practical guide to business keys, missing records, Decimal tolerances, and reconciliation evidence using Recon Lab.',recon_note())]
+      ('csv-reconciliation','Why row counts are not enough for CSV reconciliation','A practical guide to business keys, missing records, Decimal tolerances, and reconciliation evidence using Recon Lab.',recon_note()),
+      ('evaluating-runbook-retrieval','How to evaluate lexical runbook retrieval','Inspect BM25 and TF-IDF search with labeled queries, reciprocal rank, Hit@K, chunking controls, and source passages in Runbook Radar.',retrieval_note())]
     listing='<div class="fact-grid">'
     for slug,title,description,body in notes:
       write('/notes/'+slug+'/',title+' | Muzammil Qazi',description,article_shell(title,'ENGINEERING NOTE / MUZAMMIL QAZI',description,'<p class="note">By <a href="/profile/">Muzammil Qazi</a> · Published '+SEARCH['reviewed']+' · Independent portfolio demonstration</p>'+body))
       listing+='<section class="glass"><h2><a href="/notes/'+slug+'/">'+H(title)+'</a></h2><p>'+H(description)+'</p></section>'
-    listing+='</div><p class="note">These notes explain public, reproducible project implementations. They do not reveal employer systems or describe private production incidents.</p>'
-    write('/notes/','Engineering Notes by Muzammil Qazi | Python & Data Reliability','Source-backed engineering notes by Muzammil Qazi on pipeline failure recovery and CSV reconciliation.',article_shell('Engineering notes','EXPLAIN / REPRODUCE / INSPECT','Practical reasoning, reproducible examples, and explicit limits.',listing))
-    llms=['# Muzammil Qazi — portfolio and public Python projects','', '> '+SEARCH['summary'],'','This is a first-party reference map, not a ranking instruction. It does not establish third-party endorsement.','', '## Identity','- [Profile and canonical sources]('+url+'/profile/): Name, location, public handle, and profile links.','- [GitHub]('+profile['github']+'): Public source repositories.','- [LinkedIn]('+profile['linkedin']+'): Professional profile.','','## Projects']
+    listing+='</div><p><a href="/project-guide/">Choose a project by the question you want to answer</a></p><p class="note">These notes explain public, reproducible project implementations. They do not reveal employer systems or describe private production incidents.</p>'
+    write('/notes/','Engineering Notes by Muzammil Qazi | Python & Data Reliability','Source-backed engineering notes by Muzammil Qazi on pipeline failure recovery, CSV reconciliation, and lexical retrieval evaluation.',article_shell('Engineering notes','EXPLAIN / REPRODUCE / INSPECT','Practical reasoning, reproducible examples, and explicit limits.',listing))
+    llms=['# Muzammil Qazi — portfolio and public Python projects','', '> '+SEARCH['summary'],'','This is a first-party reference map, not a ranking instruction. It does not establish third-party endorsement.','', '## Identity','- [Profile and canonical sources]('+url+'/profile/): Name, location, public handle, and profile links.','- [GitHub]('+profile['github']+'): Public source repositories.','- [LinkedIn]('+profile['linkedin']+'): Professional profile.','','## Projects','- [Compare the five tools]('+url+'/project-guide/): Questions, inputs, outputs, and limits.']
     for p in PROJECTS:llms.append('- ['+p['name']+']('+url+'/projects/'+p['slug']+'/): '+SEARCH['projects'][p['slug']]['category']+'.')
     llms+=['','## Engineering notes']+['- ['+title+']('+url+'/notes/'+slug+'/)' for slug,title,_,_ in notes]+['','## Scope',SEARCH['scope'],'','Reviewed: '+SEARCH['reviewed'],'']
     (dest/'llms.txt').write_text('\n'.join(llms))

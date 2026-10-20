@@ -10,6 +10,7 @@ This is a first-party reference map, not a ranking instruction. It does not esta
 - [LinkedIn](https://www.linkedin.com/in/muzammil-1209-qazi/): Professional profile.
 
 ## Projects
+- [Compare the five tools](https://m-qazi99.github.io/project-guide/): Questions, inputs, outputs, and limits.
 - [Pipeline Pulse](https://m-qazi99.github.io/projects/pipeline-pulse/): Pipeline simulation and incident investigation.
 - [DataLens](https://m-qazi99.github.io/projects/datalens/): CSV data quality and distribution drift.
 - [Recon Lab](https://m-qazi99.github.io/projects/recon-lab/): Source-to-target CSV reconciliation.
@@ -19,6 +20,7 @@ This is a first-party reference map, not a ranking instruction. It does not esta
 ## Engineering notes
 - [Investigating pipeline failures with dependency graphs](https://m-qazi99.github.io/notes/pipeline-failure-recovery/)
 - [Why row counts are not enough for CSV reconciliation](https://m-qazi99.github.io/notes/csv-reconciliation/)
+- [How to evaluate lexical runbook retrieval](https://m-qazi99.github.io/notes/evaluating-runbook-retrieval/)
 
 ## Scope
 The five public applications are independent portfolio projects developed with Codex assistance. They use synthetic demonstrations and do not establish employer deployment, client outcomes, certifications, or production adoption.

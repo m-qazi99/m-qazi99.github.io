@@ -70,7 +70,24 @@ class SearchChecks(unittest.TestCase):
   for _,p in self.pages():
    serialized=json.dumps(p.graph).lower();self.assertNotIn('aggregaterating',serialized);self.assertNotIn('reviewrating',serialized)
  def test_focused_articles_have_authorship_and_dates(self):
-  for slug in ['pipeline-failure-recovery','csv-reconciliation']:
+  for slug in ['pipeline-failure-recovery','csv-reconciliation','evaluating-runbook-retrieval']:
    p=Page((D/'notes'/slug/'index.html').read_text());article=next(n for n in p.graph if n['@type']=='TechArticle')
    self.assertEqual(article['author']['@id'],U+'/#person');self.assertEqual(article['datePublished'],'2026-10-20')
+ def test_comparison_and_answers_are_visible_without_javascript(self):
+  guide=(D/'project-guide/index.html').read_text()
+  for project in PROJECTS:
+   self.assertIn('/projects/'+project['slug']+'/',guide)
+  self.assertIn('<caption>',guide);self.assertEqual(guide.count('scope="row"'),5)
+  profile=Page((D/'profile/index.html').read_text())
+  visible=' '.join(profile.text)
+  self.assertIn('Does Runbook Radar use a generative AI model?',visible)
+  self.assertIn('It does not call an LLM',visible)
+ def test_walkthroughs_are_linked_from_project_evidence(self):
+  for project,slug in [('pipeline-pulse','pipeline-failure-recovery'),('recon-lab','csv-reconciliation'),('runbook-radar','evaluating-runbook-retrieval')]:
+   source=(D/'projects'/project/'index.html').read_text()
+   self.assertIn('/notes/'+slug+'/',source)
+  note=(D/'notes/evaluating-runbook-retrieval/index.html').read_text()
+  self.assertIn('github.com/m-qazi99/runbook-radar/blob/main/src/lab.py',note)
+  self.assertIn('github.com/m-qazi99/runbook-radar/blob/main/tests/test_studio.py',note)
+  self.assertIn('illustrative calculation, not a measured benchmark',note)
 if __name__=='__main__':unittest.main()
