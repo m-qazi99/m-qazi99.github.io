@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "datalens",
+    "name": "DataLens",
+    "summary": "Profile a CSV, uncover missing values, and apply explicit quality rules. Turn a first look into a reproducible data-quality report.",
+    "features": [
+      "Column type inference",
+      "Missing-value analysis",
+      "Uniqueness rules",
+      "IQR outlier review"
+    ],
+    "symbol": "\u25c8",
+    "accent": "#7d5727",
+    "wash": "#f1dfb7"
+  },
+  {
+    "slug": "pipeline-pulse",
+    "name": "Pipeline Pulse",
+    "summary": "Inspect structured activity logs, group failure signals, and prepare an incident handoff with rule-based diagnostic suggestions.",
+    "features": [
+      "Failure classification",
+      "Activity duration review",
+      "Incident handoff export",
+      "Transparent diagnostic rules"
+    ],
+    "symbol": "\u2301",
+    "accent": "#286a66",
+    "wash": "#cde9de"
+  },
+  {
+    "slug": "recon-lab",
+    "name": "Recon Lab",
+    "summary": "Match records by unique keys, inspect missing rows, and compare values with a configurable numeric tolerance.",
+    "features": [
+      "Composite key matching",
+      "Missing-record detection",
+      "Decimal-safe tolerance",
+      "Exception CSV export"
+    ],
+    "symbol": "\u21c4",
+    "accent": "#5c4f99",
+    "wash": "#e2d9f4"
+  },
+  {
+    "slug": "runbook-radar",
+    "name": "Runbook Radar",
+    "summary": "Search Markdown runbooks using a real Python TF-IDF retrieval engine. Read ranked source passages with traceable citations.",
+    "features": [
+      "TF-IDF cosine ranking",
+      "Traceable source citations",
+      "Local document search",
+      "Evidence export"
+    ],
+    "symbol": "\u25ce",
+    "accent": "#3f6891",
+    "wash": "#d2e5f4"
+  },
+  {
+    "slug": "privacy-forge",
+    "name": "Privacy Forge",
+    "summary": "Review sensitive-field signals, mask whole cells, and export a sanitized copy. Inspect every flagged field before sharing data.",
+    "features": [
+      "Header-aware detection",
+      "Pattern-based discovery",
+      "Run-scoped tokenization",
+      "Masked CSV export"
+    ],
+    "symbol": "\u25c7",
+    "accent": "#9a5261",
+    "wash": "#f2d7dd"
+  }
+]

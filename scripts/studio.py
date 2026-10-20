@@ -19,6 +19,7 @@ def playground():
 def contact_form(P):
  return '''<div class="brief glass"><div><span class="small-label">LET'S MAKE THE FIRST MESSAGE EASY</span><h3>Start with a good brief.</h3><p>Choose a conversation, add a little context, and open a prepared email in your mail app.</p></div><form id="contact-brief"><label>I'd like to discuss<select id="brief-type"><option>A data engineering role</option><option>A data quality project</option><option>AI workflow automation</option><option>A professional connection</option></select></label><label>A short outline<textarea id="brief-context" rows="3" maxlength="2000" placeholder="The role, challenge, or idea you have in mind…"></textarea></label><a id="brief-email" class="button primary" href="mailto:'''+P['email']+'''">Open email draft ↗</a><p class="note">Opens your email app. Nothing is submitted or stored on this website.</p></form></div>'''
 def enhance(body,P):
+ body=body.replace('<section class="section white-section" id="work"',live_tools()+'<section class="section white-section" id="work"')
  body=body.replace('<section class="section" id="expertise"',skills()+playground()+'<section class="section" id="expertise"')
  filters='''<div class="filter-row project-filters" aria-label="Filter projects"><button type="button" class="chip active" data-project-filter="all" aria-pressed="true">All work</button><button type="button" class="chip" data-project-filter="diagnostics" aria-pressed="false">AI diagnostics</button><button type="button" class="chip" data-project-filter="quality" aria-pressed="false">Data quality</button><button type="button" class="chip" data-project-filter="retrieval" aria-pressed="false">Knowledge retrieval</button></div>'''
  body=body.replace('<div class="project-list">',filters+'<div class="project-list">')
@@ -26,3 +27,15 @@ def enhance(body,P):
   body=body.replace('<article class="project">','<article class="project glass" data-project="'+group+'">',1)
  body=body.replace('</main>',contact_form(P)+'</main>')
  return body
+
+
+def live_tools():
+ import json
+ from pathlib import Path
+ items=json.loads((Path(__file__).resolve().parents[1]/'content/live-projects.json').read_text())
+ cards=''
+ for i,p in enumerate(items,1):
+  url='https://m-qazi99.github.io/'+p['slug']+'/'
+  repo='https://github.com/m-qazi99/'+p['slug']
+  cards+='<article class="live-tool glass"><div class="live-tool-top"><span class="small-label">0'+str(i)+' / PYTHON + WEB</span><span class="live-tool-icon" aria-hidden="true">'+H(p['symbol'])+'</span></div><h3>'+H(p['name'])+'</h3><p>'+H(p['summary'])+'</p><div class="tags">'+''.join('<span class="tag">'+H(f)+'</span>'for f in p['features'][:3])+'</div><div class="actions"><a class="button primary" href="'+url+'">Launch app ↗</a><a class="text-link" href="'+repo+'">Source &amp; tests ↗</a></div></article>'
+ return '<section class="section" id="live-projects"><div class="wrap"><div class="section-head"><div><div class="eyebrow">LIVE / INDEPENDENT BUILDS</div><h2>Five tools.<br><em>Real Python. Real results.</em></h2></div><p>Try the working apps, inspect the code, and explore the tests. Each tool runs its Python analysis in your browser and also includes a local Python API.</p></div><div class="live-project-grid">'+cards+'</div><p class="note">Independent portfolio builds created in October 2026. Synthetic samples, public source, and explicit scope. No employer affiliation or production-adoption claims.</p></div></section>'
