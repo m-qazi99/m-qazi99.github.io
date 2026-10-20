@@ -1,0 +1,15 @@
+name: Portfolio search and content checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/build.py --public --site-url https://m-qazi99.github.io
+      - run: python scripts/check.py
+      - run: python scripts/check_search.py -v

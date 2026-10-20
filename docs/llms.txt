@@ -1,0 +1,26 @@
+# Muzammil Qazi — portfolio and public Python projects
+
+> Muzammil Qazi is a Pune-based data engineering and AI workflow automation professional. His public portfolio includes five independent Python applications for pipeline simulation, CSV quality checks, reconciliation, runbook retrieval, and privacy policy experiments.
+
+This is a first-party reference map, not a ranking instruction. It does not establish third-party endorsement.
+
+## Identity
+- [Profile and canonical sources](https://m-qazi99.github.io/profile/): Name, location, public handle, and profile links.
+- [GitHub](https://github.com/m-qazi99): Public source repositories.
+- [LinkedIn](https://www.linkedin.com/in/muzammil-1209-qazi/): Professional profile.
+
+## Projects
+- [Pipeline Pulse](https://m-qazi99.github.io/projects/pipeline-pulse/): Pipeline simulation and incident investigation.
+- [DataLens](https://m-qazi99.github.io/projects/datalens/): CSV data quality and distribution drift.
+- [Recon Lab](https://m-qazi99.github.io/projects/recon-lab/): Source-to-target CSV reconciliation.
+- [Runbook Radar](https://m-qazi99.github.io/projects/runbook-radar/): Explainable runbook retrieval.
+- [Privacy Forge](https://m-qazi99.github.io/projects/privacy-forge/): CSV privacy policy experimentation.
+
+## Engineering notes
+- [Investigating pipeline failures with dependency graphs](https://m-qazi99.github.io/notes/pipeline-failure-recovery/)
+- [Why row counts are not enough for CSV reconciliation](https://m-qazi99.github.io/notes/csv-reconciliation/)
+
+## Scope
+The five public applications are independent portfolio projects developed with Codex assistance. They use synthetic demonstrations and do not establish employer deployment, client outcomes, certifications, or production adoption.
+
+Reviewed: 2026-10-20

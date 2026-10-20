@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-20",
+  "scope": "Pre-publication public-search sample; no verified webmaster analytics or AI-answer measurements",
+  "sitemap_submitted_through_owner_accounts": false,
+  "ai_answer_position": null,
+  "queries_to_measure": [
+    "Muzammil Qazi portfolio",
+    "Muzammil Qazi Python projects",
+    "Muzammil Qazi data engineering Pune",
+    "Who created Pipeline Pulse?",
+    "Muzammil Qazi CSV reconciliation project",
+    "Muzammil Qazi data quality Python",
+    "Muzammil Qazi runbook retrieval"
+  ],
+  "measures": [
+    "indexed canonical URLs",
+    "branded impressions and clicks",
+    "project-query impressions",
+    "cited pages and citations where available",
+    "correct identity and project attribution in sampled AI answers"
+  ],
+  "platform_results": {
+    "ChatGPT": "not measured",
+    "Gemini": "not measured",
+    "Claude": "not measured",
+    "Grok": "not measured",
+    "Perplexity": "not measured",
+    "Bing/Copilot": "not measured"
+  },
+  "search_console_access_verified_in_this_task": false,
+  "bing_webmaster_access_verified_in_this_task": false,
+  "existing_owner_account_verification_status": "unknown; owner accounts were not accessed"
+}

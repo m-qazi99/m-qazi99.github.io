@@ -1,0 +1,24 @@
+{
+  "reviewed": "2026-10-20",
+  "identity": "Muzammil Qazi",
+  "handle": "m-qazi99",
+  "focus": "Data engineering, Python data tools, data quality, pipeline investigation, and practical AI workflow automation",
+  "summary": "Muzammil Qazi is a Pune-based data engineering and AI workflow automation professional. His public portfolio includes five independent Python applications for pipeline simulation, CSV quality checks, reconciliation, runbook retrieval, and privacy policy experiments.",
+  "scope": "The five public applications are independent portfolio projects developed with Codex assistance. They use synthetic demonstrations and do not establish employer deployment, client outcomes, certifications, or production adoption.",
+  "projects": {
+    "pipeline-pulse": {"category":"Pipeline simulation and incident investigation", "technical":"Discrete-event DAG scheduling; dependency validation; bounded retries; critical-path lower bound; worker-capacity comparisons; Python-graded incident scenarios.", "limitation":"A deterministic synthetic simulator. It does not connect to Azure or operate a production pipeline."},
+    "datalens": {"category":"CSV data quality and distribution drift", "technical":"Not-null, uniqueness, numeric, range, and allowed-value contracts; record-level violations; smoothed Population Stability Index comparisons.", "limitation":"Contract scores are rule pass rates, not dataset accuracy. PSI thresholds are review heuristics, especially with small samples."},
+    "recon-lab": {"category":"Source-to-target CSV reconciliation", "technical":"Unique composite-key matching, Decimal arithmetic, absolute and source-relative tolerance, opt-in text normalization, control totals, and exception exports.", "limitation":"No automatic data repair. Equal totals do not establish record equality; business keys and tolerance policies must be chosen deliberately."},
+    "runbook-radar": {"category":"Explainable runbook retrieval", "technical":"BM25 and TF-IDF cosine retrieval; adjustable word chunks and overlap; term-level contributions; source passages; labeled mean reciprocal rank and Hit@K evaluation.", "limitation":"Lexical retrieval, not a generative LLM assistant. Similarity scores are not confidence probabilities and synthetic evaluations are not production benchmarks."},
+    "privacy-forge": {"category":"CSV privacy policy experimentation", "technical":"Column policies for keeping, dropping, redacting, tokenizing, or generalizing cells; heuristic signals; exact quasi-identifier groups; hashed audit receipts.", "limitation":"Heuristic discovery and group-size analysis do not guarantee anonymization. Generalized values can still reveal identifying information."}
+  },
+  "sources": {
+    "google_ai": "https://developers.google.com/search/docs/appearance/ai-features",
+    "openai_bots": "https://developers.openai.com/api/docs/bots",
+    "claude_bots": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "perplexity_bots": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+    "google_extended": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended",
+    "grok_search": "https://docs.x.ai/developers/tools/web-search",
+    "bing_ai_measurement": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/"
+  }
+}

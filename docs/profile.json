@@ -1,0 +1,45 @@
+{
+  "name": "Muzammil Qazi",
+  "handle": "m-qazi99",
+  "url": "https://m-qazi99.github.io/",
+  "location": "Pune, India",
+  "summary": "Muzammil Qazi is a Pune-based data engineering and AI workflow automation professional. His public portfolio includes five independent Python applications for pipeline simulation, CSV quality checks, reconciliation, runbook retrieval, and privacy policy experiments.",
+  "sameAs": [
+    "https://github.com/m-qazi99",
+    "https://www.linkedin.com/in/muzammil-1209-qazi/"
+  ],
+  "scope": "The five public applications are independent portfolio projects developed with Codex assistance. They use synthetic demonstrations and do not establish employer deployment, client outcomes, certifications, or production adoption.",
+  "reviewed": "2026-10-20",
+  "projects": [
+    {
+      "name": "Pipeline Pulse",
+      "url": "https://m-qazi99.github.io/projects/pipeline-pulse/",
+      "application": "https://m-qazi99.github.io/pipeline-pulse/",
+      "repository": "https://github.com/m-qazi99/pipeline-pulse"
+    },
+    {
+      "name": "DataLens",
+      "url": "https://m-qazi99.github.io/projects/datalens/",
+      "application": "https://m-qazi99.github.io/datalens/",
+      "repository": "https://github.com/m-qazi99/datalens"
+    },
+    {
+      "name": "Recon Lab",
+      "url": "https://m-qazi99.github.io/projects/recon-lab/",
+      "application": "https://m-qazi99.github.io/recon-lab/",
+      "repository": "https://github.com/m-qazi99/recon-lab"
+    },
+    {
+      "name": "Runbook Radar",
+      "url": "https://m-qazi99.github.io/projects/runbook-radar/",
+      "application": "https://m-qazi99.github.io/runbook-radar/",
+      "repository": "https://github.com/m-qazi99/runbook-radar"
+    },
+    {
+      "name": "Privacy Forge",
+      "url": "https://m-qazi99.github.io/projects/privacy-forge/",
+      "application": "https://m-qazi99.github.io/privacy-forge/",
+      "repository": "https://github.com/m-qazi99/privacy-forge"
+    }
+  ]
+}

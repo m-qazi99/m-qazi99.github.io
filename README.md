@@ -77,3 +77,14 @@ See [the review of all 19 supplied references](research/profile-inspiration.md).
 ### Light glass themes
 
 The shared CSS uses semantic palette variables. `assets/theme.js` applies a saved palette before first paint; the header selector saves changes locally. All four palettes remain light. Glass uses readable surface tints, modest blur on key panels, and a no-blur fallback. The existing skill search, project filters, pipeline scenarios, and contact builder are retained.
+
+## Search and AI discoverability
+
+The build includes visible profile/project evidence, source-backed engineering notes, stable entity IDs, canonical metadata, a complete sitemap, and readable application summaries. Run `python scripts/check_search.py` after building to validate those contracts.
+
+- [Profile and canonical identity](https://m-qazi99.github.io/profile/)
+- [Project evidence](https://m-qazi99.github.io/projects/)
+- [Engineering notes](https://m-qazi99.github.io/notes/)
+- [Implementation audit and owner-account steps](reports/search-visibility-2026-10-20.md)
+
+`llms.txt` is an optional reference map; it is not required by Google and does not guarantee AI citations. No search ranking, index status, endorsement, or AI answer position is promised. Search Console/Bing verification and owner-account submissions remain separate steps.
