@@ -1,90 +1,54 @@
-# Muzammil Qazi — Portfolio
+# Muzammil Qazi — Data Workbench portfolio
 
-**Live website: https://m-qazi99.github.io/**
+[Live portfolio](https://m-qazi99.github.io/) · [Projects](https://m-qazi99.github.io/projects/) · [Project guide](https://m-qazi99.github.io/project-guide/) · [Engineering notes](https://m-qazi99.github.io/notes/) · [Contact](https://m-qazi99.github.io/contact/)
 
-Personal portfolio for Azure data engineering, AI workflow automation and intelligent data operations. Built with semantic HTML, responsive CSS, a small JavaScript navigation enhancement and a Python static-site generator. No JavaScript framework, API credentials or server is required.
+A light, glass-style portfolio by **Muzammil Qazi**, Pune, India. It connects five independent Python products, a searchable technology atlas, résumé, experience, technical evidence and contribution paths.
 
-## Structure
+## Version 2.1 — find, inspect, contribute
 
-- `content/profile.json` — profile, projects, experience, skills, education and professional links.
-- `assets/` — styles, navigation, local fonts, social image and résumé PDF.
-- `scripts/build.py` — renders the home page, three case studies, metadata, sitemap, robots rules and source download.
-- `scripts/check.py` — validates local links, anchors, metadata and output assets.
-- `scripts/resume.py` — optional résumé generator (requires ReportLab).
-- `scripts/social.py` — optional social-card generator (requires Pillow).
-- `docs/` — generated public site, published by GitHub Pages from the `main` branch.
+- Search the live product cards by name or problem and filter by pipelines, quality, retrieval or privacy.
+- See authorship, version, Review Desk features, user guides, source and contribution links on each card.
+- Explore five Python workspaces with synthetic examples, deterministic review priorities and exportable handoffs.
+- Choose Champagne, Pearl, Aurora or Rose; retain accessible navigation, keyboard focus and reduced-motion support.
+- Browse 43 technologies/practices, with developing skills labeled separately from existing areas.
 
-## Edit and publish
+[Coordinated upgrade research](research/v2-repository-audit.md) · [Launch post draft](content/launch-post.md) · [Contribution guide](CONTRIBUTING.md)
 
-1. Edit `content/profile.json` for project details and professional content. Page structure and fixed section copy are in `scripts/build.py`.
-2. Update `assets/style.css` for appearance. To replace the résumé, put the approved PDF at `assets/Muzammil_Qazi_Resume.pdf`.
-3. Run:
+## Run and maintain
 
-```sh
-python3 scripts/build.py
-python3 scripts/check.py
+Python 3.10+ is sufficient for the dependency-free static build. The public app repositories use Python 3.11+.
+
+```bash
+python scripts/build.py --public --site-url https://m-qazi99.github.io
+python scripts/check.py
+python scripts/check_search.py
 ```
 
-4. Commit and push the updated source **and `docs/`** to `main`. GitHub Pages automatically publishes the generated `docs/` folder. Build output in `dist/` is an intermediate and is ignored.
+Serve `docs/` with a static server for local inspection, or commit the generated `docs/` and source changes to publish with GitHub Pages. `dist/` is ignored intermediate output. The existing approved résumé is at `assets/Muzammil_Qazi_Resume.pdf`; rebuilding copies it into the website. Optional résumé/social-image generation uses `reportlab`/`pillow`; neither is needed for normal builds.
 
-Python 3.10+ is sufficient for normal builds. The bundled font and PDF assets mean no dependency install is needed. A custom domain requires updating `siteUrl` in the profile, configuring the domain and DNS in GitHub Pages, and rebuilding.
+## Code map
 
-## Features
+| Path | Purpose |
+|---|---|
+| `content/profile.json` | Existing résumé/profile content and public contact links |
+| `content/live-projects.json` | Live product names, features, versions and review summaries |
+| `content/search-profile.json` | First-party identity, scope and implementation evidence |
+| `scripts/build.py` | Static HTML, navigation, metadata, sitemap and deployable output |
+| `scripts/studio.py` | Technology atlas, project cards and portfolio demonstrations |
+| `scripts/search_presence.py`, `discovery_content.py` | Profile, project evidence, comparison and engineering notes |
+| `assets/catalog.js` | Local project search and discipline filtering |
+| `assets/` | Light theme styles, browser behavior, local fonts and approved résumé |
+| `docs/` | GitHub Pages publishing directory |
+| `research/`, `reports/` | Research decisions, validation and honest visibility baseline |
 
-Responsive layouts; dedicated case-study URLs; accessible navigation and focus states; reduced-motion support; native FAQ disclosures; email and LinkedIn contact; downloadable résumé; crawlable HTML; per-page SEO, canonical URLs, Open Graph PNG, JSON-LD, sitemap and robots file. The confirmed GitHub profile is linked consistently. Project diagrams illustrate documented workflows, not product screenshots. Case studies are résumé-based and do not claim independent verification, deployments or unsupported performance metrics.
+## Identity, SEO and scope
 
-No tracking, fake contact form or private operational documents are included. Email uses the visitor's mail application. Public indexing is enabled, with no promise of indexing or ranking. `_headers` is available for compatible alternative static hosts; GitHub Pages does not apply custom headers from that file.
+Crawlable HTML, unique titles/descriptions, canonical URLs, consistent person/project JSON-LD, social previews, sitemap and search-agent access are generated from source. `llms.txt` is optional navigation, not ranking instructions. Indexing, AI citations and rankings are not guaranteed; owner-account search reporting remains a separate step.
 
-## Optional authoring dependencies
+Earlier résumé-based case studies are distinguished from public app implementations. New products use synthetic demonstrations and were developed with Codex assistance. No employer affiliation, client outcome, production adoption or third-party endorsement is implied. Existing professional content is preserved; this upgrade does not invent résumé experience or skills.
 
-```sh
-python3 -m pip install reportlab pillow
-python3 scripts/resume.py
-python3 scripts/social.py
-python3 scripts/build.py
-python3 scripts/check.py
-```
+## Contribute
 
-DejaVu fonts are bundled under `assets/FONT-LICENSE.txt`. All website source and assets needed to maintain or redeploy the site are included here. No Site hosting identity or credentials are required for GitHub Pages.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), use the issue/PR templates, and retain content provenance. Avoid private logs and datasets. Personal résumé content and bundled third-party fonts retain their respective rights; this repo does not grant a new blanket license over those assets. Public app code retains the MIT licenses in its own repositories.
 
-
-## Interactive Data Workbench upgrade
-
-The site uses a light glass visual identity and an original orbital monogram. Visitors can choose Champagne (default), Pearl, Aurora, or Rose. The selection persists locally across visits. New visitor features:
-
-- Searchable atlas of 43 technologies and practices across six disciplines.
-- Project category filters and three selectable synthetic pipeline scenarios.
-- Dedicated `/about/` and `/contact/` pages.
-- A contact brief builder that opens a prepared email in the visitor's mail application.
-- Keyboard controls, focus outlines, responsive layouts, and reduced-motion support.
-
-`content/profile.json` remains the professional content source. `scripts/studio.py` contains the additional components and technology groups. `assets/app.js` handles filters, scenarios, navigation, and mailto composition. The build mirrors `dist/` to `docs/` for GitHub Pages.
-
-### Verification
-
-```sh
-python3 scripts/build.py
-python3 scripts/check.py
-node --check assets/app.js
-```
-
-The route checker validates all seven pages, local links, metadata, structured data, sitemap, résumé, and source archive. Browser checks cover the main interactions.
-
-### Research and scope
-
-See [the review of all 19 supplied references](research/profile-inspiration.md). The GitHub profile's matching banners and expandable technology atlas live in [m-qazi99/m-qazi99](https://github.com/m-qazi99/m-qazi99). Project summaries retain their original evidence boundaries; the pipeline explorer uses synthetic data and makes no live AI calls.
-
-### Light glass themes
-
-The shared CSS uses semantic palette variables. `assets/theme.js` applies a saved palette before first paint; the header selector saves changes locally. All four palettes remain light. Glass uses readable surface tints, modest blur on key panels, and a no-blur fallback. The existing skill search, project filters, pipeline scenarios, and contact builder are retained.
-
-## Search and AI discoverability
-
-The build includes visible profile/project evidence, source-backed engineering notes, stable entity IDs, canonical metadata, a complete sitemap, and readable application summaries. Run `python scripts/check_search.py` after building to validate those contracts.
-
-- [Profile and canonical identity](https://m-qazi99.github.io/profile/)
-- [Project evidence](https://m-qazi99.github.io/projects/)
-- [Engineering notes](https://m-qazi99.github.io/notes/)
-- [Implementation audit and owner-account steps](reports/search-visibility-2026-10-20.md)
-
-`llms.txt` is an optional reference map; it is not required by Google and does not guarantee AI citations. No search ranking, index status, endorsement, or AI answer position is promised. Search Console/Bing verification and owner-account submissions remain separate steps.
+`_headers` supports compatible static hosts but is not applied by GitHub Pages. Contact links open an email draft; there is no server submission or hidden tracking.

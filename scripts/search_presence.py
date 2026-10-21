@@ -25,7 +25,7 @@ def software(profile,p):
        'description':p['summary'],'author':{'@id':url+'/#person'},'creator':{'@id':url+'/#person'},
        'applicationCategory':'DeveloperApplication','operatingSystem':'Any',
        'browserRequirements':'JavaScript and WebAssembly; internet access for the initial Python runtime download.',
-       'isAccessibleForFree':True,'featureList':p['features'],
+       'isAccessibleForFree':True,'softwareVersion':p.get('version','2.1.0'),'featureList':p['features'],
        'mainEntityOfPage':{'@id':url+'/projects/'+p['slug']+'/#webpage'}},
       {'@type':'SoftwareSourceCode','@id':'https://github.com/m-qazi99/'+p['slug']+'#sourcecode',
        'name':p['name']+' Python source','codeRepository':'https://github.com/m-qazi99/'+p['slug'],
