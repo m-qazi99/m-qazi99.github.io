@@ -7,11 +7,14 @@
       "Visual DAG builder",
       "Python-graded incident challenges",
       "Capacity planning frontier",
-      "Local experiment vault"
+      "Local experiment vault",
+      "Review Desk handoff exports"
     ],
     "symbol": "\u2301",
     "accent": "#246b60",
-    "wash": "#d7eee4"
+    "wash": "#d7eee4",
+    "version": "2.1.0",
+    "review": "Failed-activity priorities, recovery coverage and capacity handoffs"
   },
   {
     "slug": "datalens",
@@ -21,11 +24,14 @@
       "Row-level quality heatmap",
       "Executable JSON contracts",
       "Baseline PSI drift comparison",
-      "Distribution and schema inspection"
+      "Distribution and schema inspection",
+      "Review Desk handoff exports"
     ],
     "symbol": "\u25c8",
     "accent": "#936622",
-    "wash": "#f3e4c5"
+    "wash": "#f3e4c5",
+    "version": "2.1.0",
+    "review": "Contract coverage gaps and failing-rule review priorities"
   },
   {
     "slug": "recon-lab",
@@ -35,11 +41,14 @@
       "Selectable record diff inspector",
       "Absolute and relative Decimal policies",
       "Tolerance sensitivity frontier",
-      "Control totals and exception ledger"
+      "Control totals and exception ledger",
+      "Review Desk handoff exports"
     ],
     "symbol": "\u21c4",
     "accent": "#6953a2",
-    "wash": "#e9e0f8"
+    "wash": "#e9e0f8",
+    "version": "2.1.0",
+    "review": "Keyset exceptions and field-level reconciliation priorities"
   },
   {
     "slug": "runbook-radar",
@@ -49,11 +58,14 @@
       "BM25 versus TF-IDF ranking",
       "Per-term score explanation",
       "Controllable chunk atlas",
-      "Labeled MRR and hit-rate evaluation"
+      "Labeled MRR and hit-rate evaluation",
+      "Review Desk handoff exports"
     ],
     "symbol": "\u25ce",
     "accent": "#386a9e",
-    "wash": "#dcebf7"
+    "wash": "#dcebf7",
+    "version": "2.1.0",
+    "review": "Evaluation coverage, top-K misses and no-match review"
   },
   {
     "slug": "privacy-forge",
@@ -63,10 +75,13 @@
       "Visual column policy builder",
       "Six transformation actions",
       "Quasi-identifier group exposure",
-      "Hashed input/output audit receipts"
+      "Hashed input/output audit receipts",
+      "Review Desk handoff exports"
     ],
     "symbol": "\u25c7",
     "accent": "#a25268",
-    "wash": "#f5dfe6"
+    "wash": "#f5dfe6",
+    "version": "2.1.0",
+    "review": "Retained signals, singleton groups and policy review"
   }
 ]
